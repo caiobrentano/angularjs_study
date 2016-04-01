@@ -15,6 +15,18 @@
       images: {
         full: 'imgs/swift.jpg',
       },
+      reviews: [
+        {
+          stars: 3,
+          body: 'Its ok',
+          author: 'nm',
+        },
+        {
+          stars: 5,
+          body: 'Amazing!',
+          author: 'pq',
+        }
+      ],
     },
     {
       name: 'Keystone',
@@ -38,7 +50,15 @@
     this.isSelected = function(checkTab) {
         return checkTab === this.tab;
     };
+  });
 
+  app.controller('ReviewController', function() {
+    this.review = {};
+
+    this.addReview = function(product) {
+      product.reviews.push(this.review);
+      this.review = {};
+    };
   });
 
 })();
